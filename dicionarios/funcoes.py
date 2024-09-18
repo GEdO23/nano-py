@@ -6,14 +6,12 @@ def perguntar():
                  "<L> - Para Listar um usuário: ").upper()
 
 
-def inserir(dicionario):
-    dicionario[input("Digite o login: ").upper()] = [input("Digite o nome: ").upper(),
-                                                     input("Digite a última data de acesso: "),
-                                                     input("Qual a última estação acessada: ").upper()]
-    salvar(dicionario)
+def inserir():
+    salvar(input("Digite o login: ").upper(), [input("Digite o nome: ").upper(),
+                                               input("Digite a última data de acesso: "),
+                                               input("Qual a última estação acessada: ").upper()])
 
 
-def salvar(dicionario):
+def salvar(chave, valor):
     with open("bd.txt", "a") as arquivo:
-        for chave, valor in dicionario.items():
-            arquivo.write(chave + ":" + str(valor))
+        arquivo.write(chave + ":" + str(valor) + "\n")
