@@ -1,9 +1,10 @@
-base_dados = []
+import json
 
-with open("iris.data", "r") as arquivo:
-    for registro in arquivo.readlines():
-        base_dados.append(registro.split(","))
+dicionario = {
+    "CHAVES": ["CHAVES DO 8", "14/04/2017", "RECEP_01"],
+    "QUICO": ["QUICO FLORES", "24/04/2017", "RECEP_01"],
+    "FLORINDA": ["DONA FLORINDA", "18/04/2017", "RECEP_03"]
+}
 
-print(base_dados)
-
-print(float(base_dados[0][0]) + float(base_dados[0][1]))
+with open("bd1.json", "w") as json_file:
+    json.dump(dicionario, json_file)
